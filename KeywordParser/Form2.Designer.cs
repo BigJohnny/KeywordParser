@@ -31,6 +31,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Word = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isIgnored = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,13 +43,15 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Word,
-            this.Count});
+            this.Count,
+            this.isIgnored});
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.Size = new System.Drawing.Size(496, 537);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // Word
             // 
@@ -65,6 +68,14 @@
             this.Count.HeaderText = "出現次數";
             this.Count.Name = "Count";
             this.Count.ReadOnly = true;
+            // 
+            // isIgnored
+            // 
+            this.isIgnored.DataPropertyName = "isIgnored";
+            this.isIgnored.HeaderText = "Column1";
+            this.isIgnored.Name = "isIgnored";
+            this.isIgnored.ReadOnly = true;
+            this.isIgnored.Visible = false;
             // 
             // Form2
             // 
@@ -85,5 +96,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Word;
         private System.Windows.Forms.DataGridViewTextBoxColumn Count;
+        private System.Windows.Forms.DataGridViewTextBoxColumn isIgnored;
     }
 }

@@ -23,5 +23,11 @@ namespace KeywordParser
         {
 
         }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            e.CellStyle.BackColor = (dataGridView1.DataSource as List<Keyword>)[e.RowIndex].isIgnored?Color.Gray: Color.White;
+            
+        }
     }
 }
