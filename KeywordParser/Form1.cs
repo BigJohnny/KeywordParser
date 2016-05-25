@@ -66,7 +66,8 @@ namespace KeywordParser
                 Keyword kwTemp = new Keyword()
                 {
                     Word = sWord,
-                    Count = iCount
+                    Count = iCount,
+                    isIgnored = Keyword.dicIgnoredArray.Contains(sWord)
                 };
 
                 dicKeyword.Add(sWord,kwTemp);
@@ -103,5 +104,19 @@ namespace KeywordParser
     {
         public string Word { get; set; }
         public int Count { get; set; }
+        public bool isIgnored { get; set; }
+
+        public static HashSet<string> dicIgnoredArray { get; set; }
+        static Keyword(){
+            dicIgnoredArray = new HashSet<string>();
+            //todo 可維護,from txt
+            dicIgnoredArray.Add("is");
+            dicIgnoredArray.Add("of");
+            dicIgnoredArray.Add("a");
+            dicIgnoredArray.Add("the");
+            dicIgnoredArray.Add("is");
+            dicIgnoredArray.Add("on");
+            dicIgnoredArray.Add("of");
+        }
     }
 }
